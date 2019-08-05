@@ -7,7 +7,7 @@
   Documentation: http://koopjs.github.io/docs/usage/provider
 */
 
-function Controller(model) {
+function Controller (model) {
     this.model = model
 }
 
