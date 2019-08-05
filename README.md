@@ -10,8 +10,8 @@ Full documentation is provided [here](https://koopjs.github.io/docs/usage/provid
 
 1. Open `config/default.json` with any configurable parameters
 1. Open `model.js` and implement `getData` to call your provider and return GeoJSON
-1. Install dependencies `npm install`
-1. Run a local server `npm start`
+1. Install dependencies `yarn install`
+1. Run a local server `yarn start`
 1. Add tests to `test/`
 
 ## Koop provider file structure
@@ -37,24 +37,24 @@ Example API Query:
 - `curl localhost:8080/arches/FeatureServer/0/query?returnCountOnly=true`
 
 Tests:
-- `npm test`
+- `yarn run test`
 
 ### Development output callstack logs
 
 During development you can output error callstack with
 
-- `NODE_ENV=test npm start`
+- `NODE_ENV=test yarn start`
 
 
 ## Deploy to AWS Lambda
 
 Koop providers can be quickly deployed and scaled with AWS Lambda. To first create the service:
 
-- `npm run lambda-create`
+- `yarn run lambda-create`
 
 To deploy code updates
 
-- `npm run lambda-update`
+- `yarn run lambda-update`
 
 ### AWS Lambda configuration
 
