@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchesEsri", "ArchesEsri\ArchesEsri.csproj", "{6F117C55-2F9A-47A9-9A9E-834FE9427A44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F117C55-2F9A-47A9-9A9E-834FE9427A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F117C55-2F9A-47A9-9A9E-834FE9427A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F117C55-2F9A-47A9-9A9E-834FE9427A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F117C55-2F9A-47A9-9A9E-834FE9427A44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC720EA4-3DC0-44C9-859B-07488E826F4C}
+	EndGlobalSection
+EndGlobal
