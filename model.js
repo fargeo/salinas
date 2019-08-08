@@ -26,24 +26,34 @@ function Model(koop) {}
 // req.params.method
 Model.prototype.getData = function(req, callback) {
     const key = config.trimet.key
-    let graphid;
+    let geometryType;
     switch (req.params.layer) {
         case '1':
-            graphid = '8d41e49e-a250-11e9-9eab-00224800b26d' //consultations
+            geometryType = 'LineString';
+            break;
+        case '2':
+            geometryType = 'Polygon';
+            break;
+        case '3':
+            geometryType = 'MultiPoint';
+            break;
+        case '4':
+            geometryType = 'MultiLineString';
+            break;
+        case '5':
+            geometryType = 'MultiPolygon';
             break;
         default:
-            graphid = '336d34e3-53c3-11e9-ba5f-dca90488358a' //app area
+            geometryType = 'Point';
             
     }
-    let resourceFilter = `&resource-type-filter=%5B%7B%22graphid%22%3A%22${graphid}%22%2C%22name%22%3A%22GLHER_Application_Area%22%2C%22inverted%22%3Afalse%7D%5D`
-
-    console.log(`requested layer: ${req.params.layer}`)
+    
     // Call the remote API with our developer key
-    request(`http://localhost:8000/search/resources?tiles=true&mobiledownload=true&resourcecount=10000&paging-filter=1${resourceFilter}`, (err, res, body) => {
+    request(`http://localhost:8000/search/resources?tiles=true&mobiledownload=true&resourcecount=10000&paging-filter=1`, (err, res, body) => {
         if (err) return callback(err)
         
         // translate the response into geojson
-        const geojson = translate(body)
+        const geojson = translate(body, geometryType)
 
         // Optional: cache data for 10 seconds at a time by setting the ttl or "Time to Live"
         geojson.ttl = 100000
@@ -51,7 +61,7 @@ Model.prototype.getData = function(req, callback) {
         // Optional: Service metadata and geometry type
         geojson.metadata = {
             title: 'Koop Arches Provider',
-            geometryType: req.params.layer === '1' ? 'LineString' : 'MultiPolygon'
+            geometryType: geometryType
         }
 
         // hand off the data to Koop
@@ -59,28 +69,18 @@ Model.prototype.getData = function(req, callback) {
     })
 }
 
-function translate(input) {
+function translate(input, geometryType) {
     var features = []
     input.results.hits.hits.forEach(function(hit) {
-        // if (hit._source.points.length > 0) features.push(formatFeature(hit));
-
-        let addressTile;
-        hit._source.tiles.forEach(function(tile) {
-            if (tile.nodegroup_id === '5fea7890-9cbb-11e9-ae86-00224800b26d')
-                addressTile = tile;
-        });
-        
-        
         hit._source.geometries.forEach(function(geometry) {
             geometry.geom.features.forEach(function(feature) {
-                feature.properties.displayname = hit._source.displayname;
-                feature.properties.displaydescription = hit._source.displaydescription;
-                feature.properties.graph_id = hit._source.graph_id;
-                if (addressTile)
-                    feature.properties.address = `${addressTile.data["5fea7895-9cbb-11e9-b237-00224800b26d"]}, ${addressTile.data["5fea7898-9cbb-11e9-81c8-00224800b26d"]}`;
-                else feature.properties.address = '';
-                
-                features.push(feature);
+                if (feature.geometry.type === geometryType) {
+                    feature.properties.displayname = hit._source.displayname;
+                    feature.properties.displaydescription = hit._source.displaydescription;
+                    feature.properties.graph_id = hit._source.graph_id;
+                    feature.properties.geometryType = geometryType;
+                    features.push(feature);
+                }
             });
         })
     })
