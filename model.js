@@ -63,7 +63,8 @@ Model.prototype.getData = function(req, callback) {
         // Optional: Service metadata and geometry type
         geojson.metadata = {
             title: 'Koop Arches Provider',
-            geometryType: geometryType
+            geometryType: geometryType,
+            idField: 'indexId'
         }
 
         // hand off the data to Koop
@@ -73,15 +74,19 @@ Model.prototype.getData = function(req, callback) {
 
 function translate(input, geometryType) {
     var features = []
+    let i = 1;
     input.results.hits.hits.forEach(function(hit) {
         hit._source.geometries.forEach(function(geometry) {
             geometry.geom.features.forEach(function(feature) {
                 if (feature.geometry.type === geometryType || !geometryType) {
+                    feature.id = i;
+                    feature.properties.indexId = i;
                     feature.properties.displayname = hit._source.displayname;
                     feature.properties.displaydescription = hit._source.displaydescription;
                     feature.properties.graph_id = hit._source.graph_id;
                     feature.properties.geometryType = geometryType;
                     features.push(feature);
+                    i++;
                 }
             });
         })
