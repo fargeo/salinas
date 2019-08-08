@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "@koopjs/output-vector-tiles": "^2.1.0",
+    "aws-serverless-express": "^3.3.6",
     "config": "^3.0.0",
     "koop": "^3.10.1",
     "koop-output-geojson": "^1.1.1",
+    "lambda": "^0.10.3",
     "request": "^2.79.0"
   },
   "author": "fargeo",
