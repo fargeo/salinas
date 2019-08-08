@@ -27,25 +27,27 @@ function Model(koop) {}
 Model.prototype.getData = function(req, callback) {
     const key = config.trimet.key
     let geometryType;
-    switch (req.params.layer) {
-        case '1':
-            geometryType = 'LineString';
-            break;
-        case '2':
-            geometryType = 'Polygon';
-            break;
-        case '3':
-            geometryType = 'MultiPoint';
-            break;
-        case '4':
-            geometryType = 'MultiLineString';
-            break;
-        case '5':
-            geometryType = 'MultiPolygon';
-            break;
-        default:
-            geometryType = 'Point';
+    if (req.params.layer) {
+        switch (req.params.layer) {
+            case '1':
+                geometryType = 'LineString';
+                break;
+            case '2':
+                geometryType = 'Polygon';
+                break;
+            case '3':
+                geometryType = 'MultiPoint';
+                break;
+            case '4':
+                geometryType = 'MultiLineString';
+                break;
+            case '5':
+                geometryType = 'MultiPolygon';
+                break;
+            default:
+                geometryType = 'Point';
             
+        }
     }
     
     // Call the remote API with our developer key
@@ -74,7 +76,7 @@ function translate(input, geometryType) {
     input.results.hits.hits.forEach(function(hit) {
         hit._source.geometries.forEach(function(geometry) {
             geometry.geom.features.forEach(function(feature) {
-                if (feature.geometry.type === geometryType) {
+                if (feature.geometry.type === geometryType || !geometryType) {
                     feature.properties.displayname = hit._source.displayname;
                     feature.properties.displaydescription = hit._source.displaydescription;
                     feature.properties.graph_id = hit._source.graph_id;
@@ -88,23 +90,6 @@ function translate(input, geometryType) {
         type: 'FeatureCollection',
         features: features
     }
-}
-
-function formatFeature(inputFeature) {
-    let point = inputFeature._source.points[0].point;
-    const feature = {
-        type: 'Feature',
-        properties: {
-            displayname: inputFeature._source.displayname,
-            displaydescription: inputFeature._source.displaydescription
-        },
-        geometry: {
-            type: 'Point',
-            coordinates: [point.lon, point.lat]
-        }
-    }
-    
-    return feature
 }
 
 module.exports = Model
