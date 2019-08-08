@@ -25,7 +25,6 @@ function Model(koop) {}
 // req.params.layer
 // req.params.method
 Model.prototype.getData = function(req, callback) {
-    const key = config.trimet.key
     let geometryType;
     if (req.params.layer) {
         switch (req.params.layer) {
@@ -50,38 +49,38 @@ Model.prototype.getData = function(req, callback) {
         }
     }
     
-    // Call the remote API with our developer key
-    request(`http://localhost:8000/search/resources?tiles=true&mobiledownload=true&resourcecount=10000&paging-filter=1`, (err, res, body) => {
+    request(`${config.archesURL}/search/resources?tiles=true&mobiledownload=true&resourcecount=10000&paging-filter=1`, (err, res, body) => {
         if (err) return callback(err)
         
-        // translate the response into geojson
         const geojson = translate(body, geometryType)
 
-        // Optional: cache data for 10 seconds at a time by setting the ttl or "Time to Live"
         geojson.ttl = 100000
 
-        // Optional: Service metadata and geometry type
         geojson.metadata = {
             title: 'Koop Arches Provider',
-            geometryType: geometryType
+            geometryType: geometryType,
+            idField: 'id'
         }
 
-        // hand off the data to Koop
         callback(null, geojson)
     })
 }
 
 function translate(input, geometryType) {
     var features = []
+    let i = 1;
     input.results.hits.hits.forEach(function(hit) {
         hit._source.geometries.forEach(function(geometry) {
             geometry.geom.features.forEach(function(feature) {
                 if (feature.geometry.type === geometryType || !geometryType) {
+                    feature.id = i;
+                    feature.properties.id = i;
                     feature.properties.displayname = hit._source.displayname;
                     feature.properties.displaydescription = hit._source.displaydescription;
                     feature.properties.graph_id = hit._source.graph_id;
                     feature.properties.geometryType = geometryType;
                     features.push(feature);
+                    i++;
                 }
             });
         })
@@ -93,42 +92,3 @@ function translate(input, geometryType) {
 }
 
 module.exports = Model
-
-/* Example provider API:
-   - needs to be converted to GeoJSON Feature Collection
-{
-  "resultSet": {
-  "queryTime": 1488465776220,
-  "vehicle": [
-    {
-      "tripID": "7144393",
-      "signMessage": "Red Line to Beaverton",
-      "expires": 1488466246000,
-      "serviceDate": 1488441600000,
-      "time": 1488465767051,
-      "latitude": 45.5873117,
-      "longitude": -122.5927705,
-    }
-  ]
-}
-
-Converted to GeoJSON:
-
-{
-  "type": "FeatureCollection",
-  "features": [
-    "type": "Feature",
-    "properties": {
-      "tripID": "7144393",
-      "signMessage": "Red Line to Beaverton",
-      "expires": "2017-03-02T14:50:46.000Z",
-      "serviceDate": "2017-03-02T08:00:00.000Z",
-      "time": "2017-03-02T14:42:47.051Z",
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-122.5927705, 45.5873117]
-    }
-  ]
-}
-*/
