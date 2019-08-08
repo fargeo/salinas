@@ -7,13 +7,16 @@ const Koop = require('koop')
 const koop = new Koop()
 const tile = require('@koopjs/output-vector-tiles')
 const geojson = require("koop-output-geojson");
-
-// Install the Arches Provider
+const sheets = require('@koopjs/provider-google-sheets')
 const provider = require('./')
+
+// outputs
 koop.register(geojson);
 koop.register(tile);
 
+// providers
 koop.register(provider)
+koop.register(sheets);
 
 
 if (process.env.DEPLOY === 'export') {

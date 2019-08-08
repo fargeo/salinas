@@ -54,7 +54,7 @@ Model.prototype.getData = function(req, callback) {
         
         const geojson = translate(body, geometryType)
 
-        geojson.ttl = 100000
+        geojson.ttl = 30;
 
         geojson.metadata = {
             title: 'Koop Arches Provider',

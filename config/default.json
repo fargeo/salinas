@@ -1,3 +1,8 @@
 {
-  "archesURL": "http://localhost:8000"
+  "archesURL": "http://localhost:8000",
+  "koopOutputVectorTiles": {
+    "geojsonVT": {
+      "maxZoom": 24
+    }
+  }
 }

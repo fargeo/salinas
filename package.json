@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@koopjs/output-vector-tiles": "^2.1.0",
+    "@koopjs/provider-google-sheets": "^1.1.5",
     "config": "^3.0.0",
     "koop": "^3.10.1",
     "koop-output-geojson": "^1.1.1",
