@@ -5,10 +5,16 @@ process.on('SIGTERM', () => process.exit(0))
 // Initialize Koop
 const Koop = require('koop')
 const koop = new Koop()
+const tile = require('@koopjs/output-vector-tiles')
+const geojson = require("koop-output-geojson");
 
 // Install the Arches Provider
 const provider = require('./')
+koop.register(geojson);
+koop.register(tile);
+
 koop.register(provider)
+
 
 if (process.env.DEPLOY === 'export') {
     module.exports = koop.server
