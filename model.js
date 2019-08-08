@@ -11,7 +11,9 @@ const request = require('request').defaults({
 })
 const config = require('config')
 
-function Model(koop) {}
+function Model(koop) {
+    this.idField = 'id';
+}
 
 // Public function to return data from the
 // Return: GeoJSON FeatureCollection
@@ -28,7 +30,7 @@ Model.prototype.getData = function(req, callback) {
     const key = config.trimet.key
 
     // Call the remote API with our developer key
-    request(`https://developer.trimet.org/ws/v2/vehicles/onRouteOnly/false/appid/${key}`, (err, res, body) => {
+    request('http://localhost:8000/search/resources?tiles=true&mobiledownload=true&resourcecount=100&paging-filter=1', (err, res, body) => {
         if (err) return callback(err)
 
         // translate the response into geojson
@@ -38,11 +40,10 @@ Model.prototype.getData = function(req, callback) {
         // geojson.ttl = 10
 
         // Optional: Service metadata and geometry type
-        // geojson.metadata = {
-        //   title: 'Koop Arches Provider',
-        //   description: `Generated from ${url}`,
-        //   geometryType: 'Polygon' // Default is automatic detection in Koop
-        // }
+        geojson.metadata = {
+            title: 'Koop Arches Provider',
+            geometryType: 'MultiPolygon'
+        }
 
         // hand off the data to Koop
         callback(null, geojson)
@@ -50,27 +51,38 @@ Model.prototype.getData = function(req, callback) {
 }
 
 function translate(input) {
+    var features = []
+    input.results.hits.hits.forEach(function(hit) {
+        // if (hit._source.points.length > 0) features.push(formatFeature(hit));
+        
+        hit._source.geometries.forEach(function(geometry) {
+            geometry.geom.features.forEach(function(feature) {
+                feature.properties.displayname = hit._source.displayname;
+                feature.properties.displaydescription = hit._source.displaydescription;
+                features.push(feature);
+            });
+        })
+    })
     return {
         type: 'FeatureCollection',
-        features: input.resultSet.vehicle.map(formatFeature)
+        features: features
     }
 }
 
 function formatFeature(inputFeature) {
-    // Most of what we need to do here is extract the longitude and latitude
+    let point = inputFeature._source.points[0].point;
     const feature = {
         type: 'Feature',
-        properties: inputFeature,
+        properties: {
+            displayname: inputFeature._source.displayname,
+            displaydescription: inputFeature._source.displaydescription
+        },
         geometry: {
             type: 'Point',
-            coordinates: [inputFeature.longitude, inputFeature.latitude]
+            coordinates: [point.lon, point.lat]
         }
     }
-    // But we also want to translate a few of the date fields so they are easier to use downstream
-    const dateFields = ['expires', 'serviceDate', 'time']
-    dateFields.forEach(field => {
-        feature.properties[field] = new Date(feature.properties[field]).toISOString()
-    })
+    
     return feature
 }
 
