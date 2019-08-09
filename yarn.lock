@@ -28,6 +28,14 @@
     vt-pbf "^3.1.1"
     winnow "^1.16.8"
 
+"@koopjs/provider-github@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@koopjs/provider-github/-/provider-github-3.0.0.tgz#0c81082aeda9180a23333c28eca95cbd445d4331"
+  integrity sha512-Ark3Nl9bicdy1DsJ6JQ8eJXnstdIFJamqRqLUjh80ldvCWeDVJN7tdlE9whf7PXZsa4h83czuucflT17hS7IcA==
+  dependencies:
+    config "^2.0.1"
+    geohub "^1.0.4"
+
 "@koopjs/provider-google-sheets@^1.1.5":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@koopjs/provider-google-sheets/-/provider-google-sheets-1.1.5.tgz#574e016ca434314e4dcf8b1faa65f70a6e2fa88a"
@@ -207,6 +215,13 @@ assertion-error@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
   integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
+
+async@^2.5.0:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
+  integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
+  dependencies:
+    lodash "^4.17.14"
 
 async@~1.0.0:
   version "1.0.0"
@@ -527,6 +542,13 @@ config@^1.20.1, config@^1.25.1:
   dependencies:
     json5 "^1.0.1"
 
+config@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/config/-/config-2.0.2.tgz#b81c8f4e05203e1da7752864c19a11604ca923d7"
+  integrity sha512-duIbkKb0gls0bOtGwd1vaD4236MwepQlZcrMheOGrn3/9Px7oYFh8G4LB3ylGOlPr5wGoJRm8Grb2RihJZxuHQ==
+  dependencies:
+    json5 "^1.0.1"
+
 config@^3.0.0, config@^3.1.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/config/-/config-3.2.2.tgz#c7d31bb2a9d30013a905ff420101e3b1ba58eead"
@@ -600,6 +622,13 @@ debug@2.6.9:
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
   dependencies:
     ms "2.0.0"
+
+debug@^3.0.0:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
+  integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
+  dependencies:
+    ms "^2.1.1"
 
 debug@^4.1.0:
   version "4.1.1"
@@ -998,6 +1027,15 @@ gauge@~2.7.3:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
+
+geohub@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/geohub/-/geohub-1.0.4.tgz#68dae1f154f66cc80e7693d8f51c593c39f194eb"
+  integrity sha512-ouNCc+WQaz7oStBbbI61B+cBMU1jUDNUbZi5IFbivNAVwIv3/aTiyRMyMFwiepzzpLwOdj+Xu3KNZIoHfQguAg==
+  dependencies:
+    async "^2.5.0"
+    debug "^3.0.0"
+    request "^2.22.0"
 
 geojson-vt@^3.2.1:
   version "3.2.1"
@@ -1441,7 +1479,7 @@ lodash.noop@^3.0.1:
   resolved "https://registry.yarnpkg.com/lodash.noop/-/lodash.noop-3.0.1.tgz#38188f4d650a3a474258439b96ec45b32617133c"
   integrity sha1-OBiPTWUKOkdCWEObluxFsyYXEzw=
 
-lodash@^4.12.0, lodash@^4.14.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5:
+lodash@^4.12.0, lodash@^4.14.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -1959,7 +1997,7 @@ replace-ext@1.0.0:
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
   integrity sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
 
-request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.83.0:
+request@^2.22.0, request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.83.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==

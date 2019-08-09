@@ -7,5 +7,6 @@
     },
     "googlesheets": {
         "auth": ""
-    }
+    },
+    "ghtoken": ""
 }

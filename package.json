@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@koopjs/output-vector-tiles": "^2.1.0",
+    "@koopjs/provider-github": "^3.0.0",
     "@koopjs/provider-google-sheets": "^1.1.5",
     "aws-serverless-express": "^3.3.6",
     "config": "^3.0.0",

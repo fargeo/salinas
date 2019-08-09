@@ -8,6 +8,8 @@ const koop = new Koop()
 const tile = require('@koopjs/output-vector-tiles')
 const geojson = require("koop-output-geojson");
 const sheets = require('@koopjs/provider-google-sheets')
+const github = require('@koopjs/provider-github')
+
 const provider = require('./')
 
 // outputs
@@ -15,9 +17,9 @@ koop.register(geojson);
 koop.register(tile);
 
 // providers
-koop.register(provider)
+koop.register(provider);
+koop.register(github);
 koop.register(sheets);
-
 
 if (process.env.DEPLOY === 'export') {
     module.exports = koop.server
