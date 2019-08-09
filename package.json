@@ -13,6 +13,7 @@
     "lambda-update": "claudia update"
   },
   "dependencies": {
+    "@koopjs/auth-direct-file": "^2.0.0",
     "@koopjs/output-vector-tiles": "^2.1.0",
     "@koopjs/provider-github": "^3.0.0",
     "@koopjs/provider-google-sheets": "^1.1.5",

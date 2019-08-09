@@ -9,8 +9,10 @@ const tile = require('@koopjs/output-vector-tiles')
 const geojson = require("koop-output-geojson");
 const sheets = require('@koopjs/provider-google-sheets')
 const github = require('@koopjs/provider-github')
-
+let auth = require('@koopjs/auth-direct-file')('koop-hack-trip-testing', `${__dirname}/user-store.json`)
 const provider = require('./')
+
+koop.register(auth)
 
 // outputs
 koop.register(geojson);
