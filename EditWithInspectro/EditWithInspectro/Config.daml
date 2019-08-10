@@ -1,0 +1,37 @@
+﻿<ArcGIS defaultAssembly="EditWithInspectro.dll" defaultNamespace="EditWithInspectro" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{ebf958d7-9970-44ec-bf33-101163cfd0d8}" version="1.0" desktopVersion="2.4.19948">
+    <Name>EditWithInspectro</Name>
+    <Description>EditWithInspectro description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>njk</Author>
+    <Company>Acme</Company>
+    <Date>8/8/2019 11:12:52 AM, 2019</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="EditWithInspectro_Module" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <!--<tab id="EditWithInspectro_Tab1" caption="New Tab">
+          <group refID="EditWithInspectro_Group1"/>
+        </tab>-->
+      </tabs>
+      <groups>
+        <group id="EditWithInspector_Group1" caption="Update Attributes with Inspector" appearsOnAddInTab="true">
+          <editBox refID="EditWithInspector_AttributeNameToUseEditBox" size="middle" />
+          <editBox refID="EditWithInspector_ModValueToSetEditBox" size="middle" />
+          <button refID="EditWithInspector_UpdateValuesButton" size="large" />
+        </group>
+      </groups>
+
+      <controls>
+        <editBox id="EditWithInspector_ModValueToSetEditBox" caption="Enter value to set: " className="ModValueToSetEditBox" sizeString="AAAAAAAAAAAAAAAAA"></editBox>
+        <editBox id="EditWithInspector_AttributeNameToUseEditBox" caption="Enter attribute name to update:" className="AttributeNameToUseEditBox" sizeString="AAAAAAAAAAAAAAAAA"></editBox>
+        <button id="EditWithInspector_UpdateValuesButton" caption="Update Values" className="UpdateValuesButton" loadOnClick="true" smallImage="Images\GenericButtonBlue16.png" largeImage="Images\GenericButtonBlue32.png">
+        </button>
+      </controls>
+    </insertModule>
+  </modules>
+</ArcGIS>

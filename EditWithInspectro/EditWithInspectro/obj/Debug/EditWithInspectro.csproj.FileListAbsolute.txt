@@ -1,0 +1,12 @@
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.csprojAssemblyReference.cache
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.csproj.CoreCompileInputs.cache
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\bin\Debug\EditWithInspectro.dll
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\bin\Debug\EditWithInspectro.pdb
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.dll
+C:\Users\njk\Projects\ArchesEsri\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\bin\Debug\EditWithInspectro.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\bin\Debug\EditWithInspectro.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.csprojAssemblyReference.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.csproj.CoreCompileInputs.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\EditWithInspectro\EditWithInspectro\obj\Debug\EditWithInspectro.pdb
