@@ -1,0 +1,10 @@
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\bin\Debug\ArchesPane.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\bin\Debug\ArchesPane.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\Dockpane1.g.cs
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane_MarkupCompile.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane_MarkupCompile.lref
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\Dockpane1.baml
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane.g.resources
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane.csproj.CoreCompileInputs.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesPane\ArchesPane\obj\Debug\ArchesPane.pdb
