@@ -4,3 +4,14 @@ C:\Users\Administrator.elefante\Documents\AddIns\ArchesEsri\ArchesEsri\obj\Debug
 C:\Users\Administrator.elefante\Documents\AddIns\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.csproj.CoreCompileInputs.cache
 C:\Users\Administrator.elefante\Documents\AddIns\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.dll
 C:\Users\Administrator.elefante\Documents\AddIns\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\bin\Debug\ArchesEsri.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\bin\Debug\ArchesEsri.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.csprojAssemblyReference.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.csproj.CoreCompileInputs.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.dll
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.pdb
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\Dockpane1.g.cs
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri_MarkupCompile.cache
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri_MarkupCompile.lref
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\Dockpane1.baml
+C:\Users\njk\Projects\ArchesEsri\salinas\ArchesEsri\ArchesEsri\obj\Debug\ArchesEsri.g.resources

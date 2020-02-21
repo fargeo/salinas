@@ -24,6 +24,7 @@
         <group id="ArchesEsri_Group1" caption="Group 1" appearsOnAddInTab="true">
           <!-- host controls within groups -->
           <button refID="ArchesEsri_Button1" size="large" />
+          <button refID="ArchesEsri_Dockpane1_ShowButton" size="large" />
         </group>
       </groups>
       <controls>
@@ -31,7 +32,15 @@
         <button id="ArchesEsri_Button1" caption="Button 1" className="Button1" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">
           <tooltip heading="Tooltip Heading">Tooltip text<disabledText /></tooltip>
         </button>
+        <button id="ArchesEsri_Dockpane1_ShowButton" caption="Show Dockpane 1" className="Dockpane1_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Show Dockpane">Show Dockpane<disabledText /></tooltip>
+        </button>
       </controls>
+      <dockPanes>
+        <dockPane id="ArchesEsri_Dockpane1" caption="Dockpane 1" className="Dockpane1ViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="Dockpane1View" />
+        </dockPane>
+      </dockPanes>
     </insertModule>
   </modules>
 </ArcGIS>
